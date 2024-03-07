@@ -4,11 +4,13 @@ const router = express.Router();
 //importing controllers
 const {signup} = require("../controllers/signupHandler");
 const {loogin} =require("../controllers/loogin");
+const { resetpassword } = require("../controllers/resetPassword");
 const {auth,isStudent,isAdmin} = require("../middleware/auth");
 
 //mounting controllers
 router.post("/signup",signup);
 router.post("/login",loogin);
+router.post("/forgot-password",resetpassword);
 router.get("/test",auth,(req,res)=>{
     res.json({
         success:true,
